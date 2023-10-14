@@ -1,11 +1,47 @@
 {
   "root": true,
   "ignorePatterns": ["**/*"],
-  "plugins": ["@nx"],
+  "plugins": ["@nx", "unicorn", "simple-import-sort", "ng-module-sort"],
   "overrides": [
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
       "rules": {
+        "indent": ["error", 2],
+        "linebreak-style": ["error", "unix"],
+        "no-console": "warn",
+        "ng-module-sort/decorator-array-items": "error",
+        "prefer-const": "error",
+        "prefer-arrow-callback": "error",
+        "semi": ["error", "always"],
+        "simple-import-sort/imports": [
+          "error",
+          {
+            "groups": [
+              ["^@angular", "^@nestjs"],
+              ["^@"],
+              ["^\\u0000"],
+              ["^\\.\\.(?!/?$)", "^\\.\\./?$"],
+              ["^\\./(?=.*/)(?!/?$)", "^\\.(?!/?$)", "^\\./?$"]
+            ]
+          }
+        ],
+        "unicorn/better-regex": "error",
+        "unicorn/no-abusive-eslint-disable": "error",
+        "unicorn/no-array-for-each": "error",
+        "unicorn/no-array-push-push": "error",
+        "unicorn/no-for-loop": "error",
+        "unicorn/no-instanceof-array": "error",
+        "unicorn/no-nested-ternary": "error",
+        "unicorn/no-new-array": "error",
+        "unicorn/no-useless-length-check": "error",
+        "unicorn/no-useless-spread": "error",
+        "unicorn/no-useless-undefined": "error",
+        "unicorn/prefer-array-find": "error",
+        "unicorn/prefer-array-index-of": "error",
+        "unicorn/prefer-array-some": "error",
+        "unicorn/prefer-date-now": "error",
+        "unicorn/prefer-spread": "error",
+        "unicorn/require-array-join-separator": "error",
         "@nx/enforce-module-boundaries": [
           "error",
           {
