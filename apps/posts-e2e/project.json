@@ -1,22 +1,22 @@
 {
-  "name": "list-e2e",
+  "name": "posts-e2e",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/list-e2e/src",
+  "sourceRoot": "apps/posts-e2e/src",
   "projectType": "application",
   "targets": {
     "e2e": {
       "executor": "@nx/cypress:cypress",
       "options": {
-        "cypressConfig": "apps/list-e2e/cypress.config.ts",
-        "devServerTarget": "list:serve:development",
+        "cypressConfig": "apps/posts-e2e/cypress.config.ts",
+        "devServerTarget": "posts:serve:development",
         "testingType": "e2e"
       },
       "configurations": {
         "production": {
-          "devServerTarget": "list:serve:production"
+          "devServerTarget": "posts:serve:production"
         },
         "ci": {
-          "devServerTarget": "list:serve-static"
+          "devServerTarget": "posts:serve-static"
         }
       }
     },
@@ -24,10 +24,10 @@
       "executor": "@nx/linter:eslint",
       "outputs": ["{options.outputFile}"],
       "options": {
-        "lintFilePatterns": ["apps/list-e2e/**/*.{js,ts}"]
+        "lintFilePatterns": ["apps/posts-e2e/**/*.{js,ts}"]
       }
     }
   },
   "tags": [],
-  "implicitDependencies": ["list"]
+  "implicitDependencies": ["posts"]
 }

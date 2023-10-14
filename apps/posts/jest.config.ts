@@ -1,8 +1,8 @@
 export default {
-  displayName: 'manage',
+  displayName: 'posts',
   preset: '../../jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: '../../coverage/apps/manage',
+  coverageDirectory: '../../coverage/apps/posts',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',
