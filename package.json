@@ -11,7 +11,7 @@
     "lint:fix": "nx run-many -t lint --all --fix",
     "format": "nx format:write",
     "postinstall": "husky install",
-    "clean": "rm -rf .angular node_modules yarn.lock && yarn cache clean && yarn"
+    "clean": "rm -rf .angular node_modules dist yarn.lock && yarn cache clean && yarn"
   },
   "private": true,
   "dependencies": {
