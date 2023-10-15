@@ -7,8 +7,8 @@ import {NxWelcomeComponent} from './nx-welcome.component';
   standalone: true,
   imports: [NxWelcomeComponent, RouterModule],
   selector: 'nx-example-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
+  templateUrl: './app.template.html',
+  styleUrls: ['./app.style.scss'],
 })
 export class AppComponent {
   title = 'manage';
