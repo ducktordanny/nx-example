@@ -9,7 +9,7 @@
     "test:all": "nx run-many -t test --all",
     "lint": "nx run-many -t lint --all",
     "lint:fix": "nx run-many -t lint --all --fix",
-    "format": "nx format:write",
+    "format": "nx format:write --all",
     "postinstall": "husky install",
     "clean": "rm -rf .angular node_modules dist yarn.lock && yarn cache clean && yarn"
   },

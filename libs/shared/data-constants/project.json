@@ -1,0 +1,29 @@
+{
+  "name": "shared-data-constants",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared/data-constants/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/shared/data-constants",
+        "main": "libs/shared/data-constants/src/index.ts",
+        "tsConfig": "libs/shared/data-constants/tsconfig.lib.json",
+        "assets": ["libs/shared/data-constants/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/shared/data-constants/**/*.ts",
+          "libs/shared/data-constants/package.json"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

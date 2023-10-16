@@ -1,13 +1,12 @@
-import { Controller, Get } from '@nestjs/common';
+import {Controller, Get} from '@nestjs/common';
 
-import { AppService } from './app.service';
+import {IWelcome} from '@nx-example/shared/api-interfaces';
+import {welcomeResponse} from '@nx-example/shared/data-constants';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
-
   @Get()
-  getData() {
-    return this.appService.getData();
+  getData(): IWelcome {
+    return welcomeResponse;
   }
 }
