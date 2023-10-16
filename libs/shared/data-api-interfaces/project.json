@@ -1,0 +1,29 @@
+{
+  "name": "shared-data-api-interfaces",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/shared/data-api-interfaces/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/shared/data-api-interfaces",
+        "main": "libs/shared/data-api-interfaces/src/index.ts",
+        "tsConfig": "libs/shared/data-api-interfaces/tsconfig.lib.json",
+        "assets": ["libs/shared/data-api-interfaces/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/shared/data-api-interfaces/**/*.ts",
+          "libs/shared/data-api-interfaces/package.json"
+        ]
+      }
+    }
+  },
+  "tags": ["scope:shared", "type:data"]
+}

@@ -1,4 +1,4 @@
-import {IWelcome} from '@nx-example/shared/api-interfaces';
+import {IWelcome} from '@nx-example/shared/data-api-interfaces';
 
 export const welcomeResponse: IWelcome = {
   message: 'Hello API',

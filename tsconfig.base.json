@@ -21,7 +21,7 @@
       "@nx-example/api-posts-feature": ["libs/api/posts/feature/src/index.ts"],
       "@nx-example/api-users-data-access": ["libs/api/users/data-access/src/index.ts"],
       "@nx-example/api-users-feature": ["libs/api/users/feature/src/index.ts"],
-      "@nx-example/shared/api-interfaces": ["libs/shared/api-interfaces/src/index.ts"],
+      "@nx-example/shared/data-api-interfaces": ["libs/shared/data-api-interfaces/src/index.ts"],
       "@nx-example/shared/data-constants": ["libs/shared/data-constants/src/index.ts"]
     }
   },
