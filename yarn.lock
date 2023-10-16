@@ -5227,9 +5227,9 @@ ejs@^3.1.7:
     jake "^10.8.5"
 
 electron-to-chromium@^1.4.535:
-  version "1.4.554"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.554.tgz#04e09c2ee31dc0f1546174033809b54cc372740b"
-  integrity sha512-Q0umzPJjfBrrj8unkONTgbKQXzXRrH7sVV7D9ea2yBV3Oaogz991yhbpfvo2LMNkJItmruXTEzVpP9cp7vaIiQ==
+  version "1.4.555"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.555.tgz#8f5a2ad8b5090570b9fa63577327dcddc3f40311"
+  integrity sha512-k1wGC7UXDTyCWcONkEMRG/w6Jvrxi+SVEU+IeqUKUKjv2lGJ1b+jf1mqrloyxVTG5WYYjNQ+F6+Cb1fGrLvNcA==
 
 emittery@^0.13.1:
   version "0.13.1"
@@ -10416,9 +10416,9 @@ terser@5.19.2:
     source-map-support "~0.5.20"
 
 terser@^5.16.8:
-  version "5.21.0"
-  resolved "https://registry.yarnpkg.com/terser/-/terser-5.21.0.tgz#d2b27e92b5e56650bc83b6defa00a110f0b124b2"
-  integrity sha512-WtnFKrxu9kaoXuiZFSGrcAvvBqAdmKx0SFNmVNYdJamMu9yyN3I/QF0FbH4QcqJQ+y1CJnzxGIKH0cSj+FGYRw==
+  version "5.22.0"
+  resolved "https://registry.yarnpkg.com/terser/-/terser-5.22.0.tgz#4f18103f84c5c9437aafb7a14918273310a8a49d"
+  integrity sha512-hHZVLgRA2z4NWcN6aS5rQDc+7Dcy58HOf2zbYwmFcQ+ua3h6eEFf5lIDKTzbWwlazPyOZsFQO8V80/IjVNExEw==
   dependencies:
     "@jridgewell/source-map" "^0.3.3"
     acorn "^8.8.2"
@@ -10990,12 +10990,21 @@ webpack-dev-server@4.15.1, webpack-dev-server@^4.9.3:
     webpack-dev-middleware "^5.3.1"
     ws "^8.13.0"
 
-webpack-merge@5.9.0, webpack-merge@^5.8.0:
+webpack-merge@5.9.0:
   version "5.9.0"
   resolved "https://registry.yarnpkg.com/webpack-merge/-/webpack-merge-5.9.0.tgz#dc160a1c4cf512ceca515cc231669e9ddb133826"
   integrity sha512-6NbRQw4+Sy50vYNTw7EyOn41OZItPiXB8GNv3INSoe3PSFaHJEz3SHTrYVaRm2LilNGnFUzh0FAwqPEmU/CwDg==
   dependencies:
     clone-deep "^4.0.1"
+    wildcard "^2.0.0"
+
+webpack-merge@^5.8.0:
+  version "5.10.0"
+  resolved "https://registry.yarnpkg.com/webpack-merge/-/webpack-merge-5.10.0.tgz#a3ad5d773241e9c682803abf628d4cd62b8a4177"
+  integrity sha512-+4zXKdx7UnO+1jaN4l2lHVD+mFvnlZQP/6ljaJVb4SZiwIKeUnrT5l0gkT8z+n4hKpC+jpOv6O9R+gLtag7pSA==
+  dependencies:
+    clone-deep "^4.0.1"
+    flat "^5.0.2"
     wildcard "^2.0.0"
 
 webpack-node-externals@^3.0.0:
