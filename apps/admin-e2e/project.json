@@ -28,6 +28,6 @@
       }
     }
   },
-  "tags": [],
+  "tags": ["scope:admin", "type:app"],
   "implicitDependencies": ["admin"]
 }

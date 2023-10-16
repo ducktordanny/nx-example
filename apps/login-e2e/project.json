@@ -28,6 +28,6 @@
       }
     }
   },
-  "tags": [],
+  "tags": ["scope:login", "type:app"],
   "implicitDependencies": ["login"]
 }

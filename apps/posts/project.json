@@ -4,7 +4,7 @@
   "projectType": "application",
   "prefix": "nx-example",
   "sourceRoot": "apps/posts/src",
-  "tags": [],
+  "tags": ["scope:posts", "type:app"],
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:browser",

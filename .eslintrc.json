@@ -49,8 +49,41 @@
             "allow": [],
             "depConstraints": [
               {
-                "sourceTag": "*",
-                "onlyDependOnLibsWithTags": ["*"]
+                "sourceTag": "scope:api",
+                "onlyDependOnLibsWithTags": ["scope:shared", "scope:api"]
+              },
+              {
+                "sourceTag": "scope:admin",
+                "onlyDependOnLibsWithTags": ["scope:shared", "scope:admin"]
+              },
+              {
+                "sourceTag": "scope:login",
+                "onlyDependOnLibsWithTags": ["scope:shared", "scope:login"]
+              },
+              {
+                "sourceTag": "scope:posts",
+                "onlyDependOnLibsWithTags": ["scope:shared", "scope:posts"]
+              },
+              {
+                "sourceTag": "type:feature",
+                "onlyDependOnLibsWithTags": ["*"],
+                "notDependOnLibsWithTags": ["type:app"]
+              },
+              {
+                "sourceTag": "type:data-access",
+                "onlyDependOnLibsWithTags": ["type:data-access", "type:util", "type:data"]
+              },
+              {
+                "sourceTag": "type:ui",
+                "onlyDependOnLibsWithTags": ["type:ui", "type:util", "type:data"]
+              },
+              {
+                "sourceTag": "type:util",
+                "onlyDependOnLibsWithTags": ["type:util", "type:data"]
+              },
+              {
+                "sourceTag": "type:data",
+                "onlyDependOnLibsWithTags": ["type:data"]
               }
             ]
           }

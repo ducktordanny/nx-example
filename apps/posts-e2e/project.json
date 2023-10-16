@@ -28,6 +28,6 @@
       }
     }
   },
-  "tags": [],
+  "tags": ["scope:posts", "type:app"],
   "implicitDependencies": ["posts"]
 }
