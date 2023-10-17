@@ -1,0 +1,29 @@
+{
+  "name": "api-shared-data-constants",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/api/shared/data-constants/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/api/shared/data-constants",
+        "main": "libs/api/shared/data-constants/src/index.ts",
+        "tsConfig": "libs/api/shared/data-constants/tsconfig.lib.json",
+        "assets": ["libs/api/shared/data-constants/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/api/shared/data-constants/**/*.ts",
+          "libs/api/shared/data-constants/package.json"
+        ]
+      }
+    }
+  },
+  "tags": ["scope:api", "type:data"]
+}
