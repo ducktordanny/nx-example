@@ -3,6 +3,7 @@ import {MongooseModule} from '@nestjs/mongoose';
 
 import {ApiAuthFeatureModule} from '@nx-example/api-auth-feature';
 import {ApiPostsFeatureModule} from '@nx-example/api-posts-feature';
+import {defaultLocalDbURI} from '@nx-example/api-shared-data-constants';
 import {ApiUsersFeatureModule} from '@nx-example/api-users-feature';
 
 import {AppController} from './app.controller';
@@ -12,7 +13,7 @@ import {AppController} from './app.controller';
     ApiAuthFeatureModule,
     ApiPostsFeatureModule,
     ApiUsersFeatureModule,
-    MongooseModule.forRoot('mongodb://localhost/nx-example'),
+    MongooseModule.forRoot(defaultLocalDbURI),
   ],
   controllers: [AppController],
 })
