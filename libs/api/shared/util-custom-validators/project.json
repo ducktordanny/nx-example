@@ -1,0 +1,43 @@
+{
+  "name": "api-shared-custom-validators-util",
+  "$schema": "../../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/api/shared/util-custom-validators/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/api/shared/util-custom-validators",
+        "main": "libs/api/shared/util-custom-validators/src/index.ts",
+        "tsConfig": "libs/api/shared/util-custom-validators/tsconfig.lib.json",
+        "assets": ["libs/api/shared/util-custom-validators/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/api/shared/util-custom-validators/**/*.ts",
+          "libs/api/shared/util-custom-validators/package.json"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "libs/api/shared/util-custom-validators/jest.config.ts",
+        "passWithNoTests": true
+      },
+      "configurations": {
+        "ci": {
+          "ci": true,
+          "codeCoverage": true
+        }
+      }
+    }
+  },
+  "tags": ["scope:api", "type:util"]
+}
