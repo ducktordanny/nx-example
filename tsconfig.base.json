@@ -23,6 +23,7 @@
         "libs/api/shared/util-custom-validators/src/index.ts"
       ],
       "@nx-example/api-shared-data-constants": ["libs/api/shared/data-constants/src/index.ts"],
+      "@nx-example/api-shared-interfaces-data": ["libs/api/shared/data-interfaces/src/index.ts"],
       "@nx-example/api-users-data-access": ["libs/api/users/data-access/src/index.ts"],
       "@nx-example/api-users-feature": ["libs/api/users/feature/src/index.ts"],
       "@nx-example/shared/data-api-interfaces": ["libs/shared/data-api-interfaces/src/index.ts"],
