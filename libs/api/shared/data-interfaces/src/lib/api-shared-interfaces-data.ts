@@ -1,6 +1,6 @@
-export interface ApiServiceModel<Model, CreateDto = unknown, ModifyDto = unknown> {
-  get?(id?: string): Promise<Model | Array<Model>>;
-  create?(dto: CreateDto): Promise<void>;
+export interface ApiServiceModel<Document, CreateDto = unknown, ModifyDto = CreateDto> {
+  get?(id?: string): Promise<Document | Array<Document>>;
+  create?(dto: CreateDto, id?: string): Promise<void>;
   modify?(id: string, dto: ModifyDto): Promise<void>;
   remove?(id: string): Promise<void>;
 }

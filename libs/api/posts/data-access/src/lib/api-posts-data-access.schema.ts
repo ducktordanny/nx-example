@@ -1,13 +1,14 @@
 import {Prop, Schema as NestSchema, SchemaFactory} from '@nestjs/mongoose';
 
 import {dbFeatures} from '@nx-example/api-shared-data-constants';
+import {IPostResponse} from '@nx-example/shared/data-api-interfaces';
 
-import {HydratedDocument, Schema} from 'mongoose';
+import {HydratedDocument, Types} from 'mongoose';
 
 @NestSchema()
-export class Post {
-  @Prop({type: Schema.Types.ObjectId, ref: dbFeatures.USER})
-  public userId!: Schema.Types.ObjectId;
+export class Post implements IPostResponse<Types.ObjectId> {
+  @Prop({type: Types.ObjectId, ref: dbFeatures.USER})
+  public userId!: Types.ObjectId;
 
   @Prop({type: String, required: true})
   public title!: string;
@@ -15,11 +16,11 @@ export class Post {
   @Prop({type: String, required: true})
   public content!: string;
 
-  @Prop({type: Number, default: 0})
+  @Prop({type: Number})
   public likes!: number;
 
   @Prop({type: Date})
-  public createdAd!: Date;
+  public createdAt!: Date;
 }
 
 export type PostDocument = HydratedDocument<Post>;
