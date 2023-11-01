@@ -1,4 +1,4 @@
-import {Controller, ImATeapotException, Post, Request, UseGuards} from '@nestjs/common';
+import {Controller, InternalServerErrorException, Post, Request, UseGuards} from '@nestjs/common';
 import {AuthGuard} from '@nestjs/passport';
 
 import {AuthService} from '@nx-example/api-auth-data-access';
@@ -13,7 +13,7 @@ export class AuthController {
   @UseGuards(AuthGuard('local'))
   @Post('login')
   public login(@Request() req: Req) {
-    if (!req.user) throw new ImATeapotException();
+    if (!req.user) throw new InternalServerErrorException();
     return this.authService.login(req.user as IUserResponse);
   }
 }
