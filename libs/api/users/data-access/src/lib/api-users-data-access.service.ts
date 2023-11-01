@@ -8,6 +8,7 @@ import {InjectModel} from '@nestjs/mongoose';
 
 import {dbFeatures} from '@nx-example/api-shared-data-constants';
 import {ApiServiceModel} from '@nx-example/api-shared-interfaces-data';
+import {IUserResponse} from '@nx-example/shared/data-api-interfaces';
 
 import {CreateUserDto, ModifyUserDto, PasswordChangeDto} from './api-users-data-access.dto';
 import {User, UserDocument} from './api-users-data-access.schema';
@@ -28,8 +29,12 @@ export class UsersService implements ApiServiceModel<UserDocument, CreateUserDto
     return user;
   }
 
-  public async getByUsername(username: string): Promise<UserDocument> {
+  public async getByUsername(
+    username: string,
+    handleError = true,
+  ): Promise<UserDocument | IUserResponse | null> {
     const user = await this.userModel.findOne({username}).select<UserDocument>('-password');
+    if (!user && !handleError) return null;
     if (!user) throw new NotFoundException('user cannot be found');
     return user;
   }
@@ -62,14 +67,14 @@ export class UsersService implements ApiServiceModel<UserDocument, CreateUserDto
     await this.userModel.updateOne({username}, {password});
   }
 
-  public async checkCredentials(username: string, password: string): Promise<UserDocument> {
+  public async checkCredentials(username: string, password: string): Promise<IUserResponse> {
     const response = await this.userModel.findOne({username});
     if (!response) throw new NotFoundException('invalid credentials');
     const userObject = response.toObject();
     const {password: passwordHash, ...user} = userObject;
     const result = await compare(password, passwordHash);
     if (!result) throw new ForbiddenException('invalid credentials');
-    return user as UserDocument;
+    return {...user, _id: user._id.toString()} as IUserResponse;
   }
 
   private handleDuplicateUsername(err: any): void {

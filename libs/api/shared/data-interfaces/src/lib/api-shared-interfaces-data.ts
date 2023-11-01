@@ -4,3 +4,8 @@ export interface ApiServiceModel<Document, CreateDto = unknown, ModifyDto = Crea
   modify?(id: string, dto: ModifyDto): Promise<void>;
   remove?(id: string): Promise<void>;
 }
+
+export interface AuthPayload {
+  username: string;
+  sub: string;
+}

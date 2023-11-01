@@ -1,6 +1,22 @@
-import {Body, Controller, Delete, Get, Param, Post, Put, Query} from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  Post,
+  Put,
+  Query,
+  Request,
+  UnauthorizedException,
+  UseGuards,
+} from '@nestjs/common';
 
+import {JwtAuthGuard} from '@nx-example/api-auth-data-access';
 import {PostDto, PostService} from '@nx-example/api-posts-data-access';
+import {IUserResponse} from '@nx-example/shared/data-api-interfaces';
+
+import {Request as Req} from 'express';
 
 @Controller('posts')
 export class PostsController {
@@ -25,16 +41,22 @@ export class PostsController {
     return this.postService.getSome(limit, from, username);
   }
 
+  @UseGuards(JwtAuthGuard)
   @Post()
-  public postData(@Body() postDto: PostDto) {
-    // TODO: this should only be available for logged in users & replace hardcoded id
-    return this.postService.create(postDto, '6532ac693d4b05bfc3e08eb3');
+  public postData(@Request() req: Req, @Body() postDto: PostDto) {
+    const user = req.user as IUserResponse;
+    const id = user?._id;
+    if (!id) throw new UnauthorizedException();
+    return this.postService.create(postDto, id);
   }
 
+  @UseGuards(JwtAuthGuard)
   @Put()
-  public modifyData(@Body() postDto: PostDto) {
-    // TODO: this should only be available for logged in users & only modify their own posts
-    return this.postService.modify('653d4a539999fe47810ec1cb', postDto);
+  public modifyData(@Request() req: Req, @Body() postDto: PostDto) {
+    const user = req.user as IUserResponse;
+    const id = user?._id;
+    if (!id) throw new UnauthorizedException();
+    return this.postService.modify(id, postDto);
   }
 
   @Post('like/:id')
@@ -42,9 +64,9 @@ export class PostsController {
     return this.postService.like(id);
   }
 
+  @UseGuards(JwtAuthGuard)
   @Delete(':id')
   public remove(@Param('id') id: string) {
-    // TODO: this should only be available for logged in users & only remove their own posts
     return this.postService.remove(id);
   }
 }
